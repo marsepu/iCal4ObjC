@@ -15,7 +15,7 @@
 
 - (id)initWithTodoComponent:(CGICalendarComponent *)todoComp
 {
-	if ((self = [super initWithFrame:CGRectMake(0.0, 0.0, CG_ICALTODOVIRECONTROLLER_CHECKED_IMAGE_SIZE, CG_ICALTODOVIRECONTROLLER_CHECKED_IMAGE_SIZE)])) {
+	if ((self = [super initWithFrame:CGRectMake(0.0, 0.0, CG_ICALTODOVIEWCONTROLLER_CHECKED_IMAGE_SIZE, CG_ICALTODOVIEWCONTROLLER_CHECKED_IMAGE_SIZE)])) {
         [self setTodoComponent:todoComp];
     }
     return self;

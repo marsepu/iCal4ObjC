@@ -10,7 +10,7 @@
 #import "CGICalTodoDetailViewController.h"
 #import "CGICalTodoViewCheckButton.h"
 
-#define CG_ICALTODOVIRECONTROLLER_CELL_CHECKBUTTON_TAG  1
+#define CG_ICALTODOVIEWCONTROLLER_CELL_CHECKBUTTON_TAG  1
 
 @interface CGICalTodoViewController()
 @property(retain) NSString *calendarPath;
@@ -94,7 +94,7 @@
 - (void)setCheckButtonHidden:(BOOL)hidden indexPath:(NSIndexPath *)indexPath 
 {
     UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:indexPath];
-    CGICalTodoViewCheckButton *checkButton = (CGICalTodoViewCheckButton *)[cell viewWithTag:CG_ICALTODOVIRECONTROLLER_CELL_CHECKBUTTON_TAG];
+    CGICalTodoViewCheckButton *checkButton = (CGICalTodoViewCheckButton *)[cell viewWithTag:CG_ICALTODOVIEWCONTROLLER_CELL_CHECKBUTTON_TAG];
     [checkButton setHidden:hidden];
     [[cell imageView] setImage:(hidden ? nil : [self chkBaseImage])];
 }
@@ -105,10 +105,10 @@
 {
     [super viewDidLoad];
 
-    [self setTitle:CG_ICALTODOVIRECONTROLLER_TITLE];
+    [self setTitle:CG_ICALTODOVIEWCONTROLLER_TITLE];
     
-    [self setChkNoneImage:[UIImage imageNamed:CG_ICALTODOVIRECONTROLLER_IMAGE_CHECKED_NONE]];
-    [self setChkDoneImage:[UIImage imageNamed:CG_ICALTODOVIRECONTROLLER_IMAGE_CHECKED_DONE]];
+    [self setChkNoneImage:[UIImage imageNamed:CG_ICALTODOVIEWCONTROLLER_IMAGE_CHECKED_NONE]];
+    [self setChkDoneImage:[UIImage imageNamed:CG_ICALTODOVIEWCONTROLLER_IMAGE_CHECKED_DONE]];
     
    // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -188,14 +188,14 @@
     [[cell detailTextLabel] setText:[[todoComp created] descriptionISO8601]];
     
     [[cell imageView] setImage:[self chkBaseImage]];
-    [[cell imageView] setImage:[todoComp hasPropertyForName:CG_ICALENDAR_PROERTY_COMPLETED] ? [self chkDoneImage] : [self chkNoneImage]];
+    [[cell imageView] setImage:[todoComp hasPropertyForName:CG_ICALENDAR_PROPERTY_COMPLETED] ? [self chkDoneImage] : [self chkNoneImage]];
     
     CGICalTodoViewCheckButton *todoCheckButton = [[CGICalTodoViewCheckButton alloc] initWithTodoComponent:todoComp];
     [todoCheckButton addTarget:self action:@selector(checkButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    //[todoCheckButton setImage:[todoComp hasPropertyForName:CG_ICALENDAR_PROERTY_COMPLETED] ? [self chkDoneImage] : [self chkNoneImage] forState:UIControlStateNormal];
-    [todoCheckButton setTag:CG_ICALTODOVIRECONTROLLER_CELL_CHECKBUTTON_TAG];
-    [todoCheckButton setFrame:CGRectMake(CG_ICALTODOVIRECONTROLLER_IMAGE_OFFSET, //cell.imageView.frame.origin.x, 
-                                         CG_ICALTODOVIRECONTROLLER_IMAGE_OFFSET, //cell.imageView.frame.origin.y, 
+    //[todoCheckButton setImage:[todoComp hasPropertyForName:CG_ICALENDAR_PROPERTY_COMPLETED] ? [self chkDoneImage] : [self chkNoneImage] forState:UIControlStateNormal];
+    [todoCheckButton setTag:CG_ICALTODOVIEWCONTROLLER_CELL_CHECKBUTTON_TAG];
+    [todoCheckButton setFrame:CGRectMake(CG_ICALTODOVIEWCONTROLLER_IMAGE_OFFSET, //cell.imageView.frame.origin.x, 
+                                         CG_ICALTODOVIEWCONTROLLER_IMAGE_OFFSET, //cell.imageView.frame.origin.y, 
                                          todoCheckButton.frame.size.width, 
                                          todoCheckButton.frame.size.height)];
     [cell addSubview:todoCheckButton];
@@ -323,9 +323,9 @@
     CGICalendarComponent *todoComp = [todoCheckButton todoComponent];
     UITableViewCell *cell = (UITableViewCell *)[todoCheckButton superview];
     
-    if ([todoComp hasPropertyForName:CG_ICALENDAR_PROERTY_COMPLETED]) {
+    if ([todoComp hasPropertyForName:CG_ICALENDAR_PROPERTY_COMPLETED]) {
         [[cell imageView] setImage:[self chkNoneImage]];
-        [todoComp removePropertyForName:CG_ICALENDAR_PROERTY_COMPLETED];
+        [todoComp removePropertyForName:CG_ICALENDAR_PROPERTY_COMPLETED];
     }
     else {
         [[cell imageView] setImage:[self chkDoneImage]];

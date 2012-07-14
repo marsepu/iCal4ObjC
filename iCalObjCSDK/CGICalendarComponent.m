@@ -345,7 +345,7 @@
 
 - (void)setParticipationStatus:(int)status
 {
-    CGICalendarProperty *icalProp = [self propertyForName:CG_ICALENDAR_PROERTY_PARTSTAT];
+    CGICalendarProperty *icalProp = [self propertyForName:CG_ICALENDAR_PROPERTY_PARTSTAT];
     if (icalProp == nil)
         icalProp = [[[CGICalendarProperty alloc] init] autorelease];
     [icalProp setParticipationStatus:status];
@@ -353,7 +353,7 @@
 
 - (int)participationStatus
 {
-    CGICalendarProperty *icalProp = [self propertyForName:CG_ICALENDAR_PROERTY_PARTSTAT];
+    CGICalendarProperty *icalProp = [self propertyForName:CG_ICALENDAR_PROPERTY_PARTSTAT];
     if (icalProp == nil)
         return CGICalendarParticipationStatusUnkown;
     return [icalProp participationStatus];
@@ -364,12 +364,12 @@
 
 - (void)setNotes:(NSString *)value
 {
-    [self setPropertyValue:value forName:CG_ICALENDAR_PROERTY_DESCRIPTION];
+    [self setPropertyValue:value forName:CG_ICALENDAR_PROPERTY_DESCRIPTION];
 }
 
 - (NSString *)notes
 {
-    return [self propertyValueForName:CG_ICALENDAR_PROERTY_DESCRIPTION];
+    return [self propertyValueForName:CG_ICALENDAR_PROPERTY_DESCRIPTION];
 }
 
 #pragma mark -
@@ -377,12 +377,12 @@
 
 - (void)setPriority:(NSUInteger)value
 {
-    [self setPropertyInteger:value forName:CG_ICALENDAR_PROERTY_PRIORITY];
+    [self setPropertyInteger:value forName:CG_ICALENDAR_PROPERTY_PRIORITY];
 }
 
 - (NSUInteger)priority
 {
-    return [self propertyIntegerForName:CG_ICALENDAR_PROERTY_PRIORITY];
+    return [self propertyIntegerForName:CG_ICALENDAR_PROPERTY_PRIORITY];
 }
 
 #pragma mark -
@@ -390,12 +390,12 @@
 
 - (void)setSummary:(NSString *)value
 {
-    [self setPropertyValue:value forName:CG_ICALENDAR_PROERTY_SUMMARY];
+    [self setPropertyValue:value forName:CG_ICALENDAR_PROPERTY_SUMMARY];
 }
 
 - (NSString *)summary
 {
-    return [self propertyValueForName:CG_ICALENDAR_PROERTY_SUMMARY];
+    return [self propertyValueForName:CG_ICALENDAR_PROPERTY_SUMMARY];
 }
 
 #pragma mark -
@@ -403,12 +403,12 @@
 
 - (void)setCompleted:(NSDate *)value
 {
-    [self setPropertyDate:value forName:CG_ICALENDAR_PROERTY_COMPLETED];
+    [self setPropertyDate:value forName:CG_ICALENDAR_PROPERTY_COMPLETED];
 }
 
 - (NSDate *)completed
 {
-    return [self propertyDateForName:CG_ICALENDAR_PROERTY_COMPLETED];
+    return [self propertyDateForName:CG_ICALENDAR_PROPERTY_COMPLETED];
 }
 
 #pragma mark -
@@ -416,12 +416,12 @@
 
 - (void)setDateTimeEnd:(NSDate *)value
 {
-    [self setPropertyDate:value forName:CG_ICALENDAR_PROERTY_DTEND];
+    [self setPropertyDate:value forName:CG_ICALENDAR_PROPERTY_DTEND];
 }
 
 - (NSDate *)dateTimeEnd
 {
-    return [self propertyDateForName:CG_ICALENDAR_PROERTY_DTEND];
+    return [self propertyDateForName:CG_ICALENDAR_PROPERTY_DTEND];
 }
 
 #pragma mark -
@@ -429,12 +429,12 @@
 
 - (void)setDue:(NSDate *)value
 {
-    [self setPropertyDate:value forName:CG_ICALENDAR_PROERTY_DUE];
+    [self setPropertyDate:value forName:CG_ICALENDAR_PROPERTY_DUE];
 }
 
 - (NSDate *)due
 {
-    return [self propertyDateForName:CG_ICALENDAR_PROERTY_DUE];
+    return [self propertyDateForName:CG_ICALENDAR_PROPERTY_DUE];
 }
 
 #pragma mark -
@@ -442,12 +442,12 @@
 
 - (void)setDateTimeStart:(NSDate *)value
 {
-    [self setPropertyDate:value forName:CG_ICALENDAR_PROERTY_DTSTART];
+    [self setPropertyDate:value forName:CG_ICALENDAR_PROPERTY_DTSTART];
 }
 
 - (NSDate *)dateTimeStart
 {
-    return [self propertyDateForName:CG_ICALENDAR_PROERTY_DTSTART];
+    return [self propertyDateForName:CG_ICALENDAR_PROPERTY_DTSTART];
 }
 
 #pragma mark -
@@ -455,12 +455,12 @@
 
 - (void)setUID:(NSString *)value
 {
-    [self setPropertyValue:value forName:CG_ICALENDAR_PROERTY_UID];
+    [self setPropertyValue:value forName:CG_ICALENDAR_PROPERTY_UID];
 }
 
 - (NSString *)UID
 {
-    return [self propertyValueForName:CG_ICALENDAR_PROERTY_UID];
+    return [self propertyValueForName:CG_ICALENDAR_PROPERTY_UID];
 }
 
 #pragma mark -
@@ -468,12 +468,12 @@
 
 - (void)setCreated:(NSDate *)value
 {
-    [self setPropertyDate:value forName:CG_ICALENDAR_PROERTY_CREATED];
+    [self setPropertyDate:value forName:CG_ICALENDAR_PROPERTY_CREATED];
 }
 
 - (NSDate *)created
 {
-    return [self propertyDateForName:CG_ICALENDAR_PROERTY_CREATED];
+    return [self propertyDateForName:CG_ICALENDAR_PROPERTY_CREATED];
 }
 
 #pragma mark -
@@ -481,12 +481,12 @@
 
 - (void)setDateTimeStamp:(NSDate *)value
 {
-    [self setPropertyDate:value forName:CG_ICALENDAR_PROERTY_DTSTAMP];
+    [self setPropertyDate:value forName:CG_ICALENDAR_PROPERTY_DTSTAMP];
 }
 
 - (NSDate *)dateTimeStamp
 {
-    return [self propertyDateForName:CG_ICALENDAR_PROERTY_DTSTAMP];
+    return [self propertyDateForName:CG_ICALENDAR_PROPERTY_DTSTAMP];
 }
 
 #pragma mark -
@@ -494,12 +494,12 @@
 
 - (void)setLastModified:(NSDate *)value;
 {
-    [self setPropertyDate:value forName:CG_ICALENDAR_PROERTY_LASTMODIFIED];
+    [self setPropertyDate:value forName:CG_ICALENDAR_PROPERTY_LASTMODIFIED];
 }
 
 - (NSDate *)lastModified;
 {
-    return [self propertyDateForName:CG_ICALENDAR_PROERTY_LASTMODIFIED];
+    return [self propertyDateForName:CG_ICALENDAR_PROPERTY_LASTMODIFIED];
 }
 
 #pragma mark -
@@ -507,12 +507,12 @@
 
 - (void)setSequenceNumber:(NSUInteger)value
 {
-    [self setPropertyInteger:value forName:CG_ICALENDAR_PROERTY_SEQUENCE];
+    [self setPropertyInteger:value forName:CG_ICALENDAR_PROPERTY_SEQUENCE];
 }
 
 - (NSUInteger)sequenceNumber
 {
-    return [self propertyIntegerForName:CG_ICALENDAR_PROERTY_SEQUENCE];
+    return [self propertyIntegerForName:CG_ICALENDAR_PROPERTY_SEQUENCE];
 }
 
 - (void)incrementSequenceNumber
