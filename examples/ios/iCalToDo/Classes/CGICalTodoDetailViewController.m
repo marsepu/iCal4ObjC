@@ -194,9 +194,9 @@ CGICALTODO_DETAILVIEWCONTROLLER_SECTION_INFO_COUNT,
     NSString *titleString = @"";
     NSString *detailTitleString = @"";
     
-	switch ([indexPath section]) {
+    switch ([indexPath section]) {
         case CGICALTODO_DETAILVIEWCONTROLLER_SECTION_SUMMARY:
-			[cell.contentView addSubview:[self summaryField]];
+            [cell.contentView addSubview:[self summaryField]];
             break;
         case CGICALTODO_DETAILVIEWCONTROLLER_SECTION_INFO:
             switch ([indexPath row]) {
@@ -216,9 +216,9 @@ CGICALTODO_DETAILVIEWCONTROLLER_SECTION_INFO_COUNT,
                     break;
             }
         case CGICALTODO_DETAILVIEWCONTROLLER_SECTION_NOTES:
-			[cell.contentView addSubview:[self descField]];
+            [cell.contentView addSubview:[self descField]];
             break;
-	}
+    }
     
     [[cell textLabel] setText:titleString];
     [[cell detailTextLabel] setText:detailTitleString];
