@@ -161,7 +161,7 @@
     [self setPropertyValue:value forName:name parameterValues:[NSArray array] parameterNames:[NSArray array]];
 }
 
-- (void)setPropertyValue:(NSString *)value forName:(NSString *)name parameterValues:(NSArray *)parameterValues parameterNames:(NSArray *)parameterNames;
+- (void)setPropertyValue:(NSString *)value forName:(NSString *)name parameterValues:(NSArray *)parameterValues parameterNames:(NSArray *)parameterNames
 {
     CGICalendarProperty *icalProp = [self propertyForName:name];
     if (icalProp == nil) {
